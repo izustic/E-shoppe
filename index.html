@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-shoppe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="placeholder.css">
+    <link rel="stylesheet" href="pagination.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" charset="utf-8"></script>
+</head>
+<body>
+        <nav class="nav">
+            <div class="container">
+                <h1 class="logo"><a href="/index.html">E-shoppe </a></h1>
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                  <i class="fa-solid fa-bars"></i>
+                </label>
+                  <ul>
+                      <li><a href="#" class="current" onclick="toggleMenu()" >Home</a></li>
+                      <li><a href="#items"onclick="toggleMenu()">Items</a></li>
+                      <li><a href="#products" onclick="toggleMenu()">Products</a></li>
+                      <li><a href="#footer" onclick="toggleMenu()">Contact</a></li>
+                  </ul>
+            </div>
+        </nav>
+    
+        <div class="hero">
+            <div class="container">
+                <h1>Welcome to E-shoppe</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, a!</p>
+            </div>
+        </div>
+
+    <section class="container content" id="items">
+      <h2 class="container-h2">Items Listings</h2>
+
+      <div class="content-wrap" style="display: none;">
+      
+          <!-- Begin adding all the cards -->
+        <div class="card" id="card1" data-img="hat1.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+    
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+    
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="card2" data-img="hat2.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+    
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+    
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="card" id="card3" data-img="hat3.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+    
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+    
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card4" data-img="shoe1.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card5" data-img="shoe2.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card6" data-img="shoe3.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card7" data-img="sneaker1.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card8" data-img="sneaker2.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card9" data-img="sneaker3.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="card10" data-img="shirt1.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="card11" data-img="shirt2.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="card12" data-img="shirt3.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="card13" data-img="denim1.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card14" data-img="denim2.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card15" data-img="denim3.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card16" data-img="hat4.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card17" data-img="hat5.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card" id="card18" data-img="hat6.png">
+          <div class="card-header animated-bg" id="header">
+            &nbsp;
+          </div>
+          <div class="card-content">
+            <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;
+            </h3>
+            <p class="card-excerpt" id="excerpt">&nbsp;
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+              <span class="span animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="author">
+              <div class="profile-img animated-bg" id="profile_img">
+                &nbsp;
+              </div>
+              <div class="author-info">
+                <strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+                <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--   End of cards -->
+      
+       <!--  progress bar -->
+       
+      <div class="pagination">
+
+        <div class="progress-container">
+            <li class="progress" id="progress"></li>
+            <li class="circle active">1</li>
+            <li class="circle">2</li>
+            <li class="circle">3</li> 
+       </div>
+        <div class="progress-buttons">
+          <button class="btn" id="prev" disabled>Prev</button>
+          <button class="btn" id="next">Next</button>
+        </div>
+        
+      </div>   
+    </section>
+          <!-- featured products -->
+    <section class="featured" id="products">
+      <div class="featured-container">
+          <h2 class="sectionTitle">Featured Products</h2>
+          <div class="split">
+              <a href="" class="featuredItem">
+                  <img src="images/sneaker4.png" alt="" class="featuredImg">
+                  <p class="featuredDetails"><span class="price">$99</span>Shoe Name</p>
+              </a>
+              <a href="" class="featuredItem">
+                  <img src="images/sneaker6.png" alt="" class="featuredImg">
+                  <p class="featuredDetails"><span class="price">$99</span>Shoe Name</p>
+              </a>
+              <a href="" class="featuredItem">
+                  <img src="images/sneaker5.png" alt="" class="featuredImg">
+                  <p class="featuredDetails"><span class="price">$99</span>Shoe Name</p>
+              </a>
+          </div>
+      </div>
+  </section>
+
+<!--   footer -->
+
+<footer> 
+ 
+  <div class="footer1 " id="footer"> Connect with us at:
+    <div class="social-media"> 
+      <a href="#"><i class="fa-brands fa-square-facebook"></i> </a> 
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a> 
+      <a href="#"><i class="fa-brands fa-youtube"></i> </a> 
+      <a href="#"> <i class="fa-brands fa-instagram"></i> </a> 
+      <a href="#"> <i class="fa-brands fa-square-twitter"></i> </a> 
+    </div> 
+  </div> 
+  <div class="footer2"> 
+    <div class="product"> 
+      <div class="heading">Products</div> 
+      <div class="div">Sell your Products</div> 
+      <div class="div">Advertise</div> 
+      <div class="div">Pricing</div> 
+      <div class="div">Product Buisness</div> 
+    </div> 
+    <div class="services"> 
+      <div class="heading">Services</div> 
+      <div class="div">Return</div> 
+      <div class="div">Cash Back</div> 
+      <div class="div">Affiliate Marketing</div> 
+      <div class="div">Others</div> 
+    </div> 
+    <div class="Company"> 
+      <div class="heading">Company</div> 
+      <div class="div">Complaint</div> 
+      <div class="div">Careers</div> 
+      <div class="div">Affiliate Marketing</div> 
+      <div class="div">Support</div> 
+    </div> 
+    <div class="Get Help"> 
+      <div class="heading">Get Help</div> 
+      <div class="div">Help Center</div> 
+      <div class="div">Privacy Policy</div>					
+      <div class="div">Terms</div> 
+      <div class="div">Login</div> 
+    </div> 
+  </div> 
+  <div class="footer3">Copyright © <h4>E-shoppe</h4> 2023</div> 
+</footer>
+
+    
+          
+<script type="text/javascript">
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach(card => {
+      const cartIcon = card.querySelector('#name');
+      const profileImg = card.querySelector('.profile-img');
+      const active = card.querySelector('.author-info strong');
+
+      profileImg.addEventListener("click", function() {
+          cartIcon.innerHTML = "Added!";
+          active.classList.add('active');
+    });
+    cartIcon.addEventListener("click", function() {
+        cartIcon.innerHTML = "Added!";
+        active.classList.add('active');
+    });
+});
+
+//pagination
+function getPageList(totalPages, page, maxLength){
+  function range(start, end){
+    return Array.from(Array(end - start +1), (_, i) => i + start);
+  }
+
+  var sideWidth = maxLength < 9 ? 1:2;
+  var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+  var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+
+  if(totalPages <= maxLength){
+    return range(1, totalPages);
+  }
+
+  if(page <= maxLength - sideWidth - 1 - rightWidth){
+    return range(1, max-length - sideWidth - 1).concat(0, range(totalPages - sideWidth + 1, totalPages));
+  }
+
+  if(page >= totalPages - sideWidth - 1 - rightWidth){
+    return range(i, sideWidth).concat(0, range(totalPages - sideWidth - 1 - rightWidth - leftWidth, totalPages))
+  }
+
+  return range(1, sideWidth).concat(0, range(page - leftWidth, page + rightWidth), 0, range(totalPages - sideWidth));
+}
+
+$(function(){
+  var numberOfItems = $(".content-wrap .card").length;
+  var limitPerPage = 6; //How many card items visible on the page
+  var totalPages = Math.ceil(numberOfItems / limitPerPage);
+  var paginationSize = 7; //How many page elements visible on the page
+  var currentPage;
+
+  function showPage(whichPage){
+    if(whichPage < 1 || whichPage > totalPages) return false;
+
+    currentPage = whichPage;
+
+    $(".content-wrap .card").hide().slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage).show();
+
+    $("pagination .btn").slice(1, -1).remove();
+
+    getPageList(totalPages, currentPage, paginationSize).forEach(item => {
+      $("<li>").addClass("circle").toggleClass("active", item === currentPage).append($(""))
+    })
+  }
+
+  $(".content-wrap").show();
+  showPage(1)
+
+  $(document).on("click", ".pagination li.current-page:not(.active)", function(){
+    return showPage(+$(this).text())
+  })
+
+  $("#next").on("click", function(){
+    return showPage(currentPage + 1);
+  });
+
+  $("#prev").on("click", function(){
+    return showPage(currentPage - 1);
+  });
+
+})
+  </script>
+<script src="pagination.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
