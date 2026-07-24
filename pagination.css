@@ -72,6 +72,10 @@
     border-color: var(--line--border-fill);
 }
 
+.circle:disabled {
+    cursor: wait;
+}
+
 .btn{
     background-color: var(--line--border-fill);
     color: white;

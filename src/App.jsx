@@ -23,6 +23,22 @@ const products = [
 
 const featuredProducts = ['sneaker4.png', 'sneaker6.png', 'sneaker5.png']
 const pageSize = 6
+const minimumSkeletonTime = 450
+
+const preloadImages = (fileNames) => Promise.all(
+  fileNames.map((fileName) => new Promise((resolve) => {
+    const image = new Image()
+    image.onload = resolve
+    image.onerror = resolve
+    image.src = getImageUrl(fileName)
+
+    if (image.complete) resolve()
+  })),
+)
+
+const delay = (duration) => new Promise((resolve) => {
+  window.setTimeout(resolve, duration)
+})
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -118,7 +134,7 @@ function ProductCard({ image, loading }) {
   )
 }
 
-function Pagination({ currentPage, totalPages, onChange }) {
+function Pagination({ currentPage, totalPages, loading, onChange }) {
   const progress = totalPages > 1 ? ((currentPage - 1) / (totalPages - 1)) * 100 : 0
 
   return (
@@ -133,6 +149,7 @@ function Pagination({ currentPage, totalPages, onChange }) {
                 type="button"
                 className={`circle${page <= currentPage ? ' active' : ''}`}
                 aria-current={page === currentPage ? 'page' : undefined}
+                disabled={loading}
                 onClick={() => onChange(page)}
               >
                 {page}
@@ -142,8 +159,8 @@ function Pagination({ currentPage, totalPages, onChange }) {
         })}
       </ol>
       <div className="progress-buttons">
-        <button className="btn" type="button" disabled={currentPage === 1} onClick={() => onChange(currentPage - 1)}>Prev</button>
-        <button className="btn" type="button" disabled={currentPage === totalPages} onClick={() => onChange(currentPage + 1)}>Next</button>
+        <button className="btn" type="button" disabled={loading || currentPage === 1} onClick={() => onChange(currentPage - 1)}>Prev</button>
+        <button className="btn" type="button" disabled={loading || currentPage === totalPages} onClick={() => onChange(currentPage + 1)}>Next</button>
       </div>
     </nav>
   )
@@ -183,17 +200,51 @@ function Footer() {
 }
 
 export default function App() {
-  const [loading, setLoading] = useState(true)
+  const [initialLoading, setInitialLoading] = useState(true)
+  const [pageLoading, setPageLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(products.length / pageSize)
+  const loading = initialLoading || pageLoading
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setLoading(false), 2500)
-    return () => window.clearTimeout(timer)
+    let cancelled = false
+
+    Promise.all([
+      preloadImages(products.slice(0, pageSize)),
+      delay(900),
+    ]).then(() => {
+      if (!cancelled) setInitialLoading(false)
+    })
+
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   const firstProduct = (currentPage - 1) * pageSize
   const visibleProducts = products.slice(firstProduct, firstProduct + pageSize)
+
+  useEffect(() => {
+    if (!pageLoading) return undefined
+
+    let cancelled = false
+    Promise.all([
+      preloadImages(visibleProducts),
+      delay(minimumSkeletonTime),
+    ]).then(() => {
+      if (!cancelled) setPageLoading(false)
+    })
+
+    return () => {
+      cancelled = true
+    }
+  }, [currentPage, pageLoading])
+
+  const changePage = (page) => {
+    if (loading || page === currentPage || page < 1 || page > totalPages) return
+    setPageLoading(true)
+    setCurrentPage(page)
+  }
 
   return (
     <>
@@ -209,12 +260,21 @@ export default function App() {
       <main>
         <section className="container content" id="items">
           <h2 className="container-h2">Items Listings</h2>
-          <div className="content-wrap">
-            {(loading ? products.slice(0, pageSize) : visibleProducts).map((image) => (
-              <ProductCard image={image} loading={loading} key={image} />
-            ))}
+          <div className="content-wrap" aria-busy={loading} aria-live="polite">
+            {loading
+              ? Array.from({ length: pageSize }, (_, index) => (
+                <ProductCard loading key={`skeleton-${index}`} />
+              ))
+              : visibleProducts.map((image) => (
+                <ProductCard image={image} loading={false} key={image} />
+              ))}
           </div>
-          <Pagination currentPage={currentPage} totalPages={totalPages} onChange={setCurrentPage} />
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            loading={loading}
+            onChange={changePage}
+          />
         </section>
 
         <section className="featured" id="products">
