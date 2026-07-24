@@ -1,13 +1,17 @@
 # Trolley Dey
 
-This is a simple commerce website built with Vite and React. The website has pagination and loading placeholders for the product cards.
+Trolley Dey is a client-side shopping-flow demo built with React and Vite. Browse a shared product catalog, open product details, search products, and manage a persistent cart without a backend.
 
 ## Features
 
-1. Pagination: Users can easily navigate through different pages using the pagination feature.
-2. Search: Users can search for products on the website.
-3. Product Cards: The product cards are displayed with images, titles, prices, and descriptions.
-4. Placeholders: Placeholder images and text are displayed when the cards are loading.
+1. Shareable routes for Home, Items, Products, Contact, Cart, product details, and 404 pages.
+2. Centralized product data with realistic names, categories, prices, and descriptions.
+3. Search by product name or category.
+4. Persistent cart with quantity editing, item removal, clear-cart, and subtotal.
+5. Image-aware skeleton loading for paginated product grids.
+6. Client-side validated contact form.
+
+This is a portfolio demo. Checkout, payments, authentication, and real contact-form delivery are intentionally out of scope.
 
 ## Hosting
 
