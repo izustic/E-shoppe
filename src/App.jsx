@@ -1,5 +1,17 @@
 import { useEffect, useState } from 'react'
 
+const imageModules = import.meta.glob('../images/*.png', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+
+const imageUrls = Object.fromEntries(
+  Object.entries(imageModules).map(([path, url]) => [path.split('/').pop(), url]),
+)
+
+const getImageUrl = (fileName) => imageUrls[fileName]
+
 const products = [
   'hat1.png', 'hat2.png', 'hat3.png',
   'shoe1.png', 'shoe2.png', 'shoe3.png',
@@ -31,7 +43,7 @@ function Navbar() {
         <h1 className="logo">
           <a href="#top" onClick={closeMenu} aria-label="Trolley Dey home">
             <img
-              src={scrolled ? '/images/logo-dark.png' : '/images/logo-light.png'}
+              src={getImageUrl(scrolled ? 'logo-dark.png' : 'logo-light.png')}
               alt="Trolley Dey"
             />
           </a>
@@ -85,7 +97,7 @@ function ProductCard({ image, loading }) {
   return (
     <article className="card">
       <div className="card-header">
-        <img src={`/images/${image}`} alt="Trolley Dey product" />
+        <img src={getImageUrl(image)} alt="Trolley Dey product" />
       </div>
       <div className="card-content">
         <h3 className="card-title">Lorem ipsum dolor sit amet.</h3>
@@ -211,7 +223,7 @@ export default function App() {
             <div className="split">
               {featuredProducts.map((image) => (
                 <a href="#products" className="featuredItem" key={image}>
-                  <img src={`/images/${image}`} alt="Featured shoe" className="featuredImg" />
+                  <img src={getImageUrl(image)} alt="Featured shoe" className="featuredImg" />
                   <p className="featuredDetails"><span className="price">$99</span>Shoe Name</p>
                 </a>
               ))}
