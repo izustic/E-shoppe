@@ -1,6 +1,6 @@
-# E-shoppe
+# Trolley Dey
 
-This is a simple commerce website built using HTML, CSS, and JavaScript. The website has pagination and other JavaScript functionalities such as placeholders for the cards on load.
+This is a simple commerce website built with Vite and React. The website has pagination and loading placeholders for the product cards.
 
 ## Features
 
@@ -12,3 +12,12 @@ This is a simple commerce website built using HTML, CSS, and JavaScript. The web
 ## Hosting
 
 The page is live on Netlify: https://izueshoppe.netlify.app/
+
+## Development
+
+```sh
+npm install
+npm run dev
+```
+
+Create a production build with `npm run build`.

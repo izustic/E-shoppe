@@ -1,6 +1,6 @@
 
 .container .pagination{
-    padding-right: 80px;
+    padding-right: 0;
 }
 
 .pagination {
@@ -9,9 +9,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     user-select: none;
-    margin: 10px
+    margin: 10px 0;
 }
 
 .progress-container {
@@ -21,6 +21,7 @@
     margin-bottom: 30px;
     max-width: 100%;
     width: 350px;
+    padding: 0;
 }
 
 .progress-container::before {
@@ -62,6 +63,9 @@
     justify-content: center;
     border: 3px solid var(--line--border-empty);
     transition: 0.4s ease;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .circle.active {

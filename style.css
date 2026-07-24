@@ -22,6 +22,15 @@ body{
     overflow-x: hidden;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+#top {
+    position: absolute;
+    top: 0;
+}
+
 .container {
     max-width: 100%;
     margin: 0 auto;
@@ -62,6 +71,23 @@ body{
     transition: all .3s ease-in-out;
 }
 
+.nav .logo {
+    line-height: 0;
+}
+
+.nav .logo a {
+    display: block;
+    padding: 0 15px;
+}
+
+.nav .logo img {
+    display: block;
+    width: 190px;
+    height: 48px;
+    object-fit: cover;
+    object-position: center;
+}
+
 .nav.active{
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -89,6 +115,8 @@ body{
     margin-right: 40px;
     cursor: pointer;
     display: none;
+    border: 0;
+    background: transparent;
 }
 #check{
     display: none;
@@ -133,7 +161,7 @@ body{
     color: #c0392b;
     font-weight: bold;
 }
-    #check:checked ~ ul {
+    .nav ul.menu-open {
         right: 0;
     }
 }
@@ -167,7 +195,7 @@ body{
 
 .hero h1 {
     font-size: 4rem;
-    font-size: clamp(3rem, calc(5vw+1rem), 4.5rem);
+    font-size: clamp(3rem, calc(5vw + 1rem), 4.5rem);
     line-height: 1;
     margin: -20px 0 20px;
 }

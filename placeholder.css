@@ -80,6 +80,12 @@ img{
     cursor: pointer;
     font-size: 30px;
 }
+.cart-action {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+}
 .profile-img:hover{
     color: #b54410;
 }
@@ -91,8 +97,18 @@ img{
     color: #b54410;
 } */
 
-.active {
+.cart-label.added {
     color: #b54410;
+}
+
+.cart-label {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 700;
+    text-align: left;
 }
 
 .author-info{
