@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useProducts } from '../../context/ProductsContext'
 import { saveProduct, updateProductFlags, uploadProductImage } from '../../services/admin'
 import { getImageUrl } from '../../utils/images'
@@ -27,6 +27,8 @@ export default function AdminProducts() {
   const [category, setCategory] = useState('all')
   const [stockFilter, setStockFilter] = useState('all')
   const [page, setPage] = useState(1)
+  const editorRef = useRef(null)
+  const slugInputRef = useRef(null)
 
   const categories = useMemo(
     () => [...new Set(products.map((product) => product.category))].sort(),
@@ -74,6 +76,16 @@ export default function AdminProducts() {
     setError('')
   }
 
+  const beginNewProduct = () => {
+    beginEdit()
+    window.requestAnimationFrame(() => {
+      slugInputRef.current?.focus()
+      if (window.innerWidth <= 1100) {
+        editorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    })
+  }
+
   const resetForm = () => {
     const originalProduct = products.find((product) => product.id === editing)
     setForm(editing === 'new' || !originalProduct
@@ -109,7 +121,9 @@ export default function AdminProducts() {
       if (!imageUrl) throw new Error('Choose a product image.')
       await saveProduct({ ...form, image_url: imageUrl })
       await refreshProducts()
-      beginEdit()
+      setEditing(null)
+      setForm(emptyProduct)
+      setImageFile(null)
     } catch (saveError) {
       setError(saveError.message)
     } finally {
@@ -141,10 +155,6 @@ export default function AdminProducts() {
           <h2>Product catalog</h2>
           <p>Add products and control storefront availability.</p>
         </div>
-        <button className="primary-button catalog-add-button" type="button" onClick={() => beginEdit()}>
-          <i className="fa-solid fa-circle-plus" aria-hidden="true" />
-          Add product
-        </button>
       </header>
 
       {error && <p className="form-alert" role="alert">{error}</p>}
@@ -237,7 +247,7 @@ export default function AdminProducts() {
           </footer>
         </aside>
 
-        <div className="catalog-editor">
+        <div className="catalog-editor" ref={editorRef}>
           {editing
             ? (
               <form className="catalog-product-form" onSubmit={handleSave}>
@@ -248,7 +258,7 @@ export default function AdminProducts() {
 
                 <label>
                   <span>Product ID / Slug <b>*</b></span>
-                  <input name="id" required disabled={editing !== 'new'} value={form.id} placeholder="e.g. golden-morn-450g" onChange={updateField} />
+                  <input ref={slugInputRef} name="id" required disabled={editing !== 'new'} value={form.id} placeholder="e.g. golden-morn-450g" onChange={updateField} />
                   <small>Unique slug using letters, numbers, and hyphens.</small>
                 </label>
                 <label>
@@ -323,7 +333,7 @@ export default function AdminProducts() {
                 <i className="fa-solid fa-box-open" aria-hidden="true" />
                 <h3>Select a product to edit</h3>
                 <p>Choose a product from the catalog or add a new one.</p>
-                <button className="primary-button" type="button" onClick={() => beginEdit()}>Add product</button>
+                <button className="primary-button" type="button" onClick={beginNewProduct}>Add product</button>
               </div>
             )}
         </div>

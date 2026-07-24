@@ -1402,10 +1402,6 @@ html {
     font-size: 14px;
 }
 
-.catalog-add-button {
-    min-width: 150px;
-}
-
 .catalog-workspace {
     display: grid;
     grid-template-columns: minmax(390px, 0.82fr) minmax(560px, 1.4fr);
@@ -2105,10 +2101,6 @@ html {
     .catalog-heading {
         align-items: stretch;
         flex-direction: column;
-    }
-
-    .catalog-add-button {
-        width: 100%;
     }
 
     .catalog-tools {
