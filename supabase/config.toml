@@ -1,0 +1,4 @@
+project_id = "trolley-dey"
+
+[functions.notify-new-order]
+verify_jwt = true

@@ -37,6 +37,7 @@ export default function Footer() {
           <span className="footer-disabled">About · Coming soon</span>
           <span className="footer-disabled">Careers · Coming soon</span>
           <span className="footer-disabled">Privacy · Coming soon</span>
+          <Link className="footer-link staff-link" to="/admin">Staff Admin</Link>
         </div>
       </div>
       <div className="footer3">Copyright © <h4>Trolley Dey</h4> {new Date().getFullYear()}</div>

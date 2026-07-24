@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from 'react'
+import { useProducts } from './ProductsContext'
 
 const CartContext = createContext(null)
 const storageKey = 'trolley-dey-cart'
@@ -29,6 +30,13 @@ function cartReducer(state, action) {
       return state.filter((item) => item.product.id !== action.productId)
     case 'CLEAR_CART':
       return []
+    case 'SYNC_PRODUCTS':
+      return state.map((item) => {
+        const currentProduct = action.products.find((product) => product.id === item.product.id)
+        return currentProduct
+          ? { ...item, product: currentProduct }
+          : { ...item, product: { ...item.product, in_stock: false } }
+      })
     default:
       return state
   }
@@ -46,10 +54,15 @@ function initializeCart() {
 
 export function CartProvider({ children }) {
   const [items, dispatch] = useReducer(cartReducer, undefined, initializeCart)
+  const { products } = useProducts()
 
   useEffect(() => {
     window.localStorage.setItem(storageKey, JSON.stringify(items))
   }, [items])
+
+  useEffect(() => {
+    dispatch({ type: 'SYNC_PRODUCTS', products })
+  }, [products])
 
   const value = useMemo(() => {
     return {

@@ -8,7 +8,11 @@ const imageUrls = Object.fromEntries(
   Object.entries(imageModules).map(([path, url]) => [path.split('/').pop(), url]),
 )
 
-export const getImageUrl = (fileName) => imageUrls[fileName]
+export const getImageUrl = (fileName) => {
+  if (!fileName) return ''
+  if (/^(https?:|data:|blob:)/.test(fileName)) return fileName
+  return imageUrls[fileName] ?? fileName
+}
 
 export const preloadImages = (fileNames) => Promise.all(
   fileNames.map((fileName) => new Promise((resolve) => {

@@ -39,6 +39,7 @@ export default function CartPage() {
                   <p className="eyebrow">{product.category}</p>
                   <Link to={`/products/${product.id}`}><h2>{product.name}</h2></Link>
                   <p>${product.price.toFixed(2)} each</p>
+                  {!product.in_stock && <span className="cart-stock-warning">Out of stock — remove before checkout</span>}
                 </div>
                 <label className="quantity-field compact-quantity">
                   <span>Quantity</span>
@@ -47,6 +48,7 @@ export default function CartPage() {
                     min="1"
                     max="20"
                     value={quantity}
+                    disabled={!product.in_stock}
                     onChange={(event) => updateQuantity(product.id, event.target.value)}
                   />
                 </label>
@@ -62,8 +64,8 @@ export default function CartPage() {
             <div><span>Subtotal</span><strong>${subtotal.toFixed(2)}</strong></div>
             <div><span>Shipping</span><span>Calculated later</span></div>
             <div className="summary-total"><span>Total</span><strong>${subtotal.toFixed(2)}</strong></div>
-            <button className="primary-button checkout-button" type="button" disabled>Checkout coming soon</button>
-            <p>This portfolio demo does not process payments.</p>
+            <Link className="primary-button checkout-button" to="/checkout">Continue to checkout</Link>
+            <p>Payment is made by cash or transfer on delivery.</p>
           </aside>
         </div>
       </section>

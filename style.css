@@ -564,6 +564,21 @@ html {
 
 .product-image-link {
     background: #f4f5f5;
+    position: relative;
+}
+
+.stock-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #252529;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .product-title-link {
@@ -612,6 +627,11 @@ html {
 .add-cart-button:hover,
 .add-cart-button.added {
     background: #b54410;
+}
+
+.add-cart-button:disabled {
+    background: #b8b8ba;
+    cursor: not-allowed;
 }
 
 .skeleton-title {
@@ -737,6 +757,14 @@ html {
     background: #4f9a60;
 }
 
+.stock-label.out-of-stock {
+    color: #923b34;
+}
+
+.stock-label.out-of-stock span {
+    background: #b84a42;
+}
+
 .detail-actions {
     display: flex;
     align-items: end;
@@ -810,6 +838,13 @@ html {
 
 .cart-item-info > p:last-child {
     color: #777;
+}
+
+.cart-stock-warning {
+    margin-top: 5px;
+    color: #a3302a;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 .cart-item-total {
@@ -939,6 +974,382 @@ html {
     color: #315c3b;
 }
 
+.catalog-notice,
+.form-alert {
+    margin: 0 0 20px;
+    padding: 12px 14px;
+    border: 1px solid #e0b1ad;
+    border-radius: 7px;
+    background: #fff0ef;
+    color: #85372f;
+    line-height: 1.5;
+}
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 42px;
+    align-items: start;
+}
+
+.checkout-heading {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.checkout-heading > p:last-child {
+    margin: 0;
+}
+
+.checkout-form {
+    max-width: 720px;
+}
+
+.checkout-form label > span small {
+    color: #888;
+    font-weight: 400;
+}
+
+.payment-method {
+    display: flex;
+    gap: 14px;
+    padding: 17px;
+    border: 1px solid #d5d9da;
+    border-radius: 8px;
+    background: #f7f8f8;
+}
+
+.payment-method > i {
+    color: #b54410;
+    font-size: 24px;
+}
+
+.payment-method div {
+    display: grid;
+    gap: 4px;
+}
+
+.payment-method span {
+    color: #69696d;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.checkout-summary {
+    top: 105px;
+}
+
+.cart-summary .checkout-summary-item {
+    align-items: start;
+    font-size: 13px;
+}
+
+.checkout-summary-item span {
+    max-width: 220px;
+}
+
+.order-confirmation {
+    max-width: 680px;
+}
+
+.confirmation-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 74px;
+    height: 74px;
+    margin-bottom: 24px;
+    border-radius: 50%;
+    background: #dcefe1;
+    color: #397348;
+    font-size: 30px;
+}
+
+.confirmation-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.staff-link {
+    margin-top: 16px;
+    color: #c4c4c7;
+    font-size: 13px;
+}
+
+.admin-login-page {
+    display: grid;
+    place-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.admin-login {
+    width: min(460px, 100%);
+}
+
+.admin-login h1 {
+    margin: 6px 0;
+}
+
+.admin-login > div > p:last-child {
+    color: #777;
+}
+
+.admin-page .page-section {
+    width: min(1260px, calc(100% - 36px));
+}
+
+.admin-header,
+.admin-section-heading,
+.admin-order-topline,
+.admin-form-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.admin-header {
+    margin-bottom: 26px;
+}
+
+.admin-header h1 {
+    margin: 5px 0;
+}
+
+.admin-header > div > p:last-child,
+.admin-section-heading p {
+    color: #777;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 22px;
+    padding: 5px;
+    border-radius: 9px;
+    background: #dedfe0;
+}
+
+.admin-tabs button {
+    flex: 1;
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #555;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.admin-tabs button.active {
+    background: #fff;
+    color: #b54410;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.admin-panel {
+    min-height: 420px;
+    padding: 25px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.07);
+}
+
+.admin-section-heading {
+    margin-bottom: 24px;
+}
+
+.admin-section-heading h2 {
+    margin-bottom: 4px;
+}
+
+.admin-section-heading > span {
+    color: #777;
+}
+
+.admin-order-list {
+    display: grid;
+    gap: 15px;
+}
+
+.admin-order {
+    padding: 18px;
+    border: 1px solid #dedfe0;
+    border-radius: 9px;
+}
+
+.admin-order-topline {
+    padding-bottom: 14px;
+    border-bottom: 1px solid #ececed;
+}
+
+.admin-order-topline > div {
+    display: grid;
+    gap: 3px;
+}
+
+.admin-order-topline span {
+    color: #888;
+    font-size: 12px;
+}
+
+.admin-order-topline select {
+    padding: 8px 10px;
+    border: 1px solid #cfd2d3;
+    border-radius: 6px;
+    background: #fff;
+    font: inherit;
+    text-transform: capitalize;
+}
+
+.admin-order-details {
+    display: grid;
+    grid-template-columns: 0.8fr 1.4fr 1.2fr 0.7fr;
+    gap: 22px;
+    padding-top: 16px;
+}
+
+.admin-order-details > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.admin-order-details span {
+    color: #888;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.admin-order-details strong,
+.admin-order-details small {
+    overflow-wrap: anywhere;
+}
+
+.admin-order-details a {
+    color: #b54410;
+    text-decoration: none;
+}
+
+.admin-order-details small {
+    color: #666;
+}
+
+.admin-empty,
+.admin-loading {
+    padding: 60px 15px;
+    color: #777;
+    text-align: center;
+}
+
+.admin-product-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 26px;
+    padding: 20px;
+    border: 1px solid #dedfe0;
+    border-radius: 9px;
+    background: #f7f8f8;
+}
+
+.admin-product-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.admin-product-form input,
+.admin-product-form textarea {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #cfd2d3;
+    border-radius: 6px;
+    background: #fff;
+    font: inherit;
+}
+
+.admin-product-form input:disabled {
+    background: #e8e9ea;
+}
+
+.admin-form-heading,
+.admin-form-wide {
+    grid-column: 1 / -1;
+}
+
+.admin-product-form .checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-product-form .checkbox-field input {
+    width: 17px;
+}
+
+.admin-product-table-wrap {
+    overflow-x: auto;
+}
+
+.admin-product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-product-table th,
+.admin-product-table td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #ececed;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.admin-product-table th {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.admin-product-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-product-name img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.status-toggle {
+    padding: 6px 9px;
+    border: 0;
+    border-radius: 999px;
+    background: #ececed;
+    color: #68686c;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.status-toggle.is-on {
+    background: #dcefe1;
+    color: #397348;
+}
+
 .error-code {
     margin: 0 !important;
     color: #b54410 !important;
@@ -981,7 +1392,8 @@ html {
 @media (max-width: 900px) {
     .product-detail-grid,
     .cart-layout,
-    .contact-layout {
+    .contact-layout,
+    .checkout-layout {
         grid-template-columns: 1fr;
     }
 
@@ -999,6 +1411,14 @@ html {
 
     .contact-layout {
         gap: 30px;
+    }
+
+    .checkout-summary {
+        position: static;
+    }
+
+    .admin-order-details {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1072,6 +1492,32 @@ html {
 
     .contact-form {
         padding: 22px;
+    }
+
+    .confirmation-actions,
+    .admin-header,
+    .admin-section-heading {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .admin-panel {
+        padding: 16px;
+    }
+
+    .admin-order-topline {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .admin-order-details,
+    .admin-product-form {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-form-heading,
+    .admin-form-wide {
+        grid-column: 1;
     }
 }
   

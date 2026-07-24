@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react'
 import ProductGrid from '../components/ProductGrid'
-import { products } from '../data/products'
+import { useProducts } from '../context/ProductsContext'
 
 export default function ProductsPage() {
+  const { products, loading, error } = useProducts()
   const [query, setQuery] = useState('')
   const normalizedQuery = query.trim().toLowerCase()
 
@@ -18,7 +19,7 @@ export default function ProductsPage() {
       <section className="page-section">
         <div className="page-heading products-heading">
           <div>
-            <p className="eyebrow">Find your next favorite</p>
+            <p className="eyebrow">Find what you need</p>
             <h1>Products</h1>
             <p>Search by product name or category.</p>
           </div>
@@ -34,12 +35,13 @@ export default function ProductsPage() {
           </label>
         </div>
 
+        {error && <p className="catalog-notice">{error}</p>}
         <p className="results-count">
           {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'}
         </p>
 
         {filteredProducts.length > 0
-          ? <ProductGrid products={filteredProducts} />
+          ? <ProductGrid products={filteredProducts} loading={loading} />
           : (
             <div className="empty-state">
               <i className="fa-solid fa-magnifying-glass" aria-hidden="true" />
