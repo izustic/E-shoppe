@@ -1622,12 +1622,14 @@ html {
 
 .catalog-pagination {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
     min-height: 68px;
     padding: 13px 18px;
     border-top: 1px solid #e5e7e8;
+    background: #fff;
     color: #68686d;
     font-size: 11px;
 }
@@ -1866,14 +1868,16 @@ html {
 
 .catalog-form-actions {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    min-height: 84px;
+    min-height: 68px;
     margin: 12px -24px -40px;
-    padding: 18px 24px;
+    padding: 13px 18px;
     border-top: 1px solid #e6e8e9;
     background: #fff;
+    color: #222;
 }
 
 .catalog-form-actions .text-button {
