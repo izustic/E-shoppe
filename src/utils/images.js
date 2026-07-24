@@ -8,10 +8,16 @@ const imageUrls = Object.fromEntries(
   Object.entries(imageModules).map(([path, url]) => [path.split('/').pop(), url]),
 )
 
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+
 export const getImageUrl = (fileName) => {
   if (!fileName) return ''
   if (/^(https?:|data:|blob:)/.test(fileName)) return fileName
-  return imageUrls[fileName] ?? fileName
+  if (imageUrls[fileName]) return imageUrls[fileName]
+  if (supabaseUrl) {
+    return `${supabaseUrl}/storage/v1/object/public/product-images/legacy/${encodeURIComponent(fileName)}`
+  }
+  return fileName
 }
 
 export const preloadImages = (fileNames) => Promise.all(

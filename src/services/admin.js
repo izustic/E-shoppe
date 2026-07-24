@@ -1,5 +1,40 @@
 import { supabase } from '../lib/supabase'
 
+const productImageBucket = 'product-images'
+const allowedImageTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
+const maximumImageSize = 5 * 1024 * 1024
+
+export async function uploadProductImage(file) {
+  if (!allowedImageTypes.includes(file.type)) {
+    throw new Error('Choose a JPG, PNG, WebP, or GIF image.')
+  }
+
+  if (file.size > maximumImageSize) {
+    throw new Error('Product images must be 5 MB or smaller.')
+  }
+
+  const extension = file.name.split('.').pop()?.toLowerCase() || 'jpg'
+  const safeName = file.name
+    .replace(/\.[^/.]+$/, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '') || 'product'
+  const path = `products/${crypto.randomUUID()}-${safeName}.${extension}`
+
+  const { error } = await supabase.storage
+    .from(productImageBucket)
+    .upload(path, file, {
+      cacheControl: '31536000',
+      contentType: file.type,
+      upsert: false,
+    })
+
+  if (error) throw error
+
+  const { data } = supabase.storage.from(productImageBucket).getPublicUrl(path)
+  return data.publicUrl
+}
+
 export async function getOrders() {
   const { data, error } = await supabase
     .from('orders')

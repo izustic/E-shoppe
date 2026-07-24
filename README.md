@@ -62,6 +62,28 @@ npm run build
 
 Only the public anon key belongs in the frontend. Never expose the service-role key through a `VITE_` variable.
 
+## Product image storage
+
+The database stores product information while Supabase Storage stores the actual image files. The migrations create a public `product-images` bucket with a 5 MB limit and staff-only upload/update/delete policies. Public visitors can view the resulting image URLs, but only allowlisted staff can manage files.
+
+The admin product form accepts JPG, PNG, WebP, and GIF files from your device. When you save a product, the browser uploads the selected file to Supabase Storage and saves its public URL in `products.image_url`.
+
+### Move the existing images once
+
+Keep the current `images/` product files until the database and Storage migrations have been applied. Then:
+
+```sh
+cp .env.migration.example .env.migration
+```
+
+Fill `.env.migration` with the project URL and service-role key from Supabase. This file is ignored by Git and must never be committed or added to Netlify. Run:
+
+```sh
+npm run migrate:product-images
+```
+
+The script uploads each existing product image to `product-images/legacy/` and replaces every database `image_url` with its Supabase public URL. Verify the storefront and admin images afterward. Only then is it safe to remove the migrated product files from the repository; keep the logo/favicon files because the site shell still uses them.
+
 ## New-order email notification
 
 The `notify-new-order` Edge Function reads the saved order using Supabase’s server-side service role and sends the owner an email through Resend.

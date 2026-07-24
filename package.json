@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "migrate:product-images": "node --env-file=.env.migration scripts/upload-product-images.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.109.0",
@@ -18,5 +19,8 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.18.1",
     "vite": "^6.0.5"
+  },
+  "devDependencies": {
+    "ws": "^8.21.1"
   }
 }
