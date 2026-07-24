@@ -1088,6 +1088,7 @@ html {
 
 .admin-login {
     width: min(460px, 100%);
+    margin: 10px;
 }
 
 .admin-login h1 {
